@@ -18,27 +18,10 @@
         http://www.springframework.org/schema/integration/rmi
 		http://www.springframework.org/schema/integration/rmi/spring-integration-rmi.xsd">
 
-	<int-rmi:outbound-gateway id="gateway" request-channel="localChannel" 
-		remote-channel="testChannel" host="localhost"/>
-	
-	<int:channel id="localChannel"/>
-	
-	<int:gateway id="employeeService" default-request-channel="localChannel" service-interface="xpadro.spring.integration.service.EmployeeService"/>
-	
-	<bean id="employeeClient" class="xpadro.spring.integration.client.Client2">
-		<constructor-arg ref="employeeService"/>
-	</bean>
-
-	<!-- 
 	<bean id="employeeService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceInterface"
-			value="xpadro.spring.integration.service.EmployeeService" />
-		<property name="serviceUrl" value="rmi://localhost:1099/org.springframework.integration.rmiGateway.testChannel" />
+			value="xpadro.spring.rmi.service.EmployeeService" />
+		<property name="serviceUrl" value="rmi://localhost:1099/employeeService" />
 	</bean>
-	-->
-	<!-- 
-	<bean id="employeeClient" class="xpadro.spring.integration.client.Client">
-		<constructor-arg ref="employeeService" />
-	</bean>
-	-->
+
 </beans>
