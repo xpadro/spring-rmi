@@ -20,10 +20,10 @@ public class TestRmiClient {
 
 	@Test
 	public void retrieveExistingEmployee() {
-		Employee employee = service.retrieveEmployee(1);
+		Employee employee = service.retrieveEmployee(2);
 		Assert.assertNotNull(employee);
-		Assert.assertEquals(1, employee.getId());
-		Assert.assertEquals("Mark Knopfler", employee.getName());
+		Assert.assertEquals(2, employee.getId());
+		Assert.assertEquals("Bruce Springsteen", employee.getName());
 	}
 	
 	@Test
