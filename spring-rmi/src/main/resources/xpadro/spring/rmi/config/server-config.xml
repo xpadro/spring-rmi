@@ -10,25 +10,22 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/jdbc
-		http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
-		http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-
+		http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 	
 	<context:component-scan base-package="xpadro.spring.rmi"/>
 	
-	<!-- Repositories -->
+	<!-- Employee repository -->
 	<bean id="employeeRepository" class="xpadro.spring.rmi.repository.EmployeeRepositoryImpl">
 		<constructor-arg ref="dataSource" />
 	</bean>
 	
+	<!-- Employee service -->
 	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="serviceName" value="employeeService"/>
 		<property name="serviceInterface" value="xpadro.spring.rmi.service.EmployeeService"/>
 		<property name="service" ref="defaultEmployeeService"/>
 	</bean>
 	
-	<!-- A transaction manager for working with connections from the given DataSource -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
