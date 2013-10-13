@@ -13,11 +13,6 @@
 	
 	<context:component-scan base-package="xpadro.spring.rmi"/>
 	
-	<!-- Employee repository -->
-	<bean id="employeeRepository" class="xpadro.spring.rmi.repository.EmployeeRepositoryImpl">
-		<constructor-arg ref="dataSource" />
-	</bean>
-	
 	<!-- Employee service -->
 	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="serviceName" value="employeeService"/>
